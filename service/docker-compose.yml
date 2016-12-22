@@ -1,0 +1,14 @@
+  wor: 
+    build: ../worker/
+    links:
+     - bro
+    environment:
+     - BROKER_URL=tcp://bro:8001
+  cli:
+    build: ../client/
+    links:
+     - bro
+    environment:
+     - BROKER_URL=tcp://bro:8000
+  bro:
+    build: ../broker/
